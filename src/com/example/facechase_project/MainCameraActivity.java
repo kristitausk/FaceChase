@@ -1,8 +1,11 @@
 package com.example.facechase_project;
 
 import java.io.File;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import mobileComm.mobileComm;
 
@@ -16,6 +19,7 @@ import android.content.ServiceConnection;
 import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.IBinder;
@@ -29,6 +33,7 @@ import android.graphics.Color;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 public class MainCameraActivity extends Activity {
 	
@@ -36,14 +41,24 @@ public class MainCameraActivity extends Activity {
 	private ImageView imageView;
 	public Bitmap killPhoto;
 
+
+
+
+	public MainCameraActivity m;
+	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
-		doBindService();
+		m = this; //need this to send the photo
+		
+	    doBindService();
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main_camera);
 		this.imageView = (ImageView) this.findViewById(R.id.imageView2);
 		Button photoButton = (Button) this.findViewById(R.id.button2);
 		photoButton.setOnClickListener(new View.OnClickListener() {
+
+
+
 
 			@Override
 			public void onClick(View v) {
@@ -54,6 +69,9 @@ public class MainCameraActivity extends Activity {
 		});
 	}
 
+
+
+
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 		if (resultCode != RESULT_CANCELED) {
@@ -61,9 +79,10 @@ public class MainCameraActivity extends Activity {
 				this.killPhoto = (Bitmap) data.getExtras().get("data");
 				ImageView i=(ImageView) this.findViewById(R.id.imageView2);
 				i.setImageBitmap(this.killPhoto);
-				// needs to be asynchronous task
-				//String photoString = bitmapToString(this.killPhoto);
-				//mBoundService.handleMessageOut("KillRequest" + Constants.stop + photoString);
+
+
+				
+				new sendPictureAsyncTask().execute();
 			}
 		}
 	}
@@ -73,6 +92,9 @@ public class MainCameraActivity extends Activity {
         Intent intent = new Intent(this, TagTargetActivity.class);
         startActivity(intent);
     }
+
+
+
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -92,6 +114,9 @@ public class MainCameraActivity extends Activity {
     private mobileComm mBoundService;
     private boolean mIsBound = false;
 
+
+
+
     private ServiceConnection mConnection = new ServiceConnection() {
         @Override
         public void onServiceConnected(ComponentName className, IBinder service) {
@@ -103,9 +128,18 @@ public class MainCameraActivity extends Activity {
             Log.w("Here", "1");
             //Log.w("Test", mBoundService.userID);
 
+
+
+
             mBoundService = ((mobileComm.LocalBinder) service).getService();
 
+
+
+
         }
+
+
+
 
         public void onServiceDisconnected(ComponentName className) {
             // This is called when the connection with the service has been
@@ -114,9 +148,18 @@ public class MainCameraActivity extends Activity {
             // see this happen.
             mBoundService = null;
 
+
+
+
         }
 
+
+
+
     };
+
+
+
 
     void doBindService() {
         // Establish a connection with the service. We use an explicit
@@ -128,6 +171,9 @@ public class MainCameraActivity extends Activity {
         mIsBound = true;
     }
 
+
+
+
     void doUnbindService() {
         if (mIsBound) {
             // Detach our existing connection.
@@ -135,6 +181,9 @@ public class MainCameraActivity extends Activity {
             mIsBound = false;
         }
     }
+
+
+
 
     @Override
     protected void onDestroy() {
@@ -206,6 +255,40 @@ public class MainCameraActivity extends Activity {
         Log.w("m", writeImageAsString(gray, w, h));
         return writeImageAsString(gray, w, h);
     }
-	
+    
+    private class sendPictureAsyncTask extends AsyncTask<Void, Void, Void>{
+        private List<Double> l;
+        
+        protected void onPreExecute() {
+            super.onPreExecute();
+        }
+
+
+
+
+        @Override 
+        protected Void doInBackground(Void... params) {
+
+
+
+
+            // needs to be asynchronous task
+            String photoString = bitmapToString(m.killPhoto);
+            Log.w("message", photoString);
+            mBoundService.handleMessageOut("KillRequest" + Constants.stop + photoString);
+            
+            return null;
+        }
+        
+        @Override
+        protected void onPostExecute(Void result) {
+            //do nothing?
+        }
+        
+        
+    }
+
+
+
 
 }

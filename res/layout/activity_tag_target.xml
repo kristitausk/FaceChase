@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingLeft="15sp"
+    android:paddingRight="15sp"
+    android:paddingTop="15sp"
+    android:paddingBottom="15sp"
+    android:background="@drawable/background">
+    
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:text="Please select which target you are intending to kill." />
+    
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="20dp" >
+    </View>
+    
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+    <RadioGroup
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:id="@+id/targetButtons">
+    <RadioButton
+        android:layout_width="fill_parent"
+    	android:layout_height="wrap_content"
+    	android:text="Caelan Garrett"/>
+    <RadioButton
+        android:layout_width="fill_parent"
+    	android:layout_height="wrap_content"
+    	android:text="Lee Gross"/>
+    <RadioButton
+        android:layout_width="fill_parent"
+    	android:layout_height="wrap_content"
+    	android:text="Miriam Prosnitz"/>
+    <RadioButton
+        android:layout_width="fill_parent"
+    	android:layout_height="wrap_content"
+    	android:text="Kristi Tausk"/>
+    
+	</RadioGroup>
+	</LinearLayout>
+	</ScrollView>
+	
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="20dp" >
+    </View>
+    <Button
+        android:layout_width="120sp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/button"
+        android:onClick="submit"
+        android:text="Submit Kill" 
+        android:layout_gravity="center_horizontal"/>
+	
+
+</LinearLayout>

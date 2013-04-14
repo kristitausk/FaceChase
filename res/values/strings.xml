@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">FaceChase</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_main_camera">FaceChase</string>
+    <string name="title_activity_registration">FaceChase</string>
+    <string name="title_activity_registration_picture_instruction">FaceChase</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_registration_take_picture">FaceChase</string>
+    <string name="title_activity_registration_add_targets_instruction">FaceChase</string>
+    <string name="title_activity_registration_add_targets">FaceChase</string>
+    <string name="title_activity_tag_target">FaceChase</string>
+    <string name="title_activity_options">FaceChase</string>
+    <string name="title_activity_leaderboard">FaceChase</string>
+    <string name="title_activity_add_targets">FaceChase</string>
+    <string name="title_activity_targets">FaceChase</string>
+    <string name="title_activity_main_menu">FaceChase</string>
+
+</resources>

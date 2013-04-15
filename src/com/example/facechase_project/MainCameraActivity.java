@@ -41,9 +41,6 @@ public class MainCameraActivity extends Activity {
 	private ImageView imageView;
 	public Bitmap killPhoto;
 
-
-
-
 	public MainCameraActivity m;
 	
 	@Override
@@ -187,8 +184,8 @@ public class MainCameraActivity extends Activity {
 
     @Override
     protected void onDestroy() {
+    	doUnbindService();
         super.onDestroy();
-        doUnbindService();
     }
     
     public static int[] rgbToGray(int image1[], int w, int h)

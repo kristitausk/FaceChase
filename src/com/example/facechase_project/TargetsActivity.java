@@ -86,7 +86,7 @@ public class TargetsActivity extends Activity {
 
     @Override
     protected void onDestroy() {
+    	doUnbindService();
         super.onDestroy();
-        doUnbindService();
     }
 }

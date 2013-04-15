@@ -21,7 +21,7 @@ import com.example.facechase_project.MainActivity;
 
 public class mobileComm extends Service {
     private BlockingQueue<String> messagesToServer;
-    private String userID = "";
+    private String userID = "Waiting";
     private List<String> friends;
     private List<String> notifications;
 

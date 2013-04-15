@@ -135,8 +135,8 @@ public class RegistrationPictureInstructionActivity extends Activity {
 
     @Override
     protected void onDestroy() {
+    	doUnbindService();
         super.onDestroy();
-        doUnbindService();
     }
     
     public static int[] rgbToGray(int image1[], int w, int h)

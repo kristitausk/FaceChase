@@ -57,21 +57,24 @@ public class MainActivity extends Activity {
 
     // Called when the user clicks the sendLogin button
     public void sendLogin(View view) {
-        Intent intent = new Intent(this, MainCameraActivity.class);
-
         EditText editTextEmail = (EditText) findViewById(R.id.email_for_login);
         EditText editTextPassword = (EditText) findViewById(R.id.password_for_login);
         String email = editTextEmail.getText().toString();
         String password = editTextPassword.getText().toString();
 
-        while (mBoundService == null) {
-
-        }
+        while (mBoundService == null) {}
 
         mBoundService.handleMessageOut("Login" + " | " + email + " | "
                 + password);
-
-        startActivity(intent);
+        
+        while (mBoundService.getUserID().equals("Waiting")) {}
+        
+        if (mBoundService.getUserID().equals("NotValid") {
+        	//need popup that says invalid
+        	startActivity(new Intent(this, MainActivity.class));
+        }
+        
+        else startActivity(newIntent(this, MainCameraActivity.class));
     }
 
     // Called when the user clicks the goToRegister button
@@ -132,8 +135,8 @@ public class MainActivity extends Activity {
 
     @Override
     protected void onDestroy() {
+    	doUnbindService();
         super.onDestroy();
-        doUnbindService();
     }
 
 

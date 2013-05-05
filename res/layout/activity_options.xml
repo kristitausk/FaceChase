@@ -76,89 +76,11 @@
         android:layout_height="wrap_content" >
 
     <LinearLayout
+        android:id="@+id/notifications_layout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical" >
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="15sp"
-        android:text="2 minutes ago:" />
-    
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="15sp"
-        android:text="You have successfully killed Lee Gross and earned 1 point." />
-    
-    <View
-        android:layout_width="fill_parent"
-        android:layout_height="10dp" >
-    </View>
-    
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="15sp"
-        android:text="1 hour ago:" />
-    
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="15sp"
-        android:text="You have been killed by Miriam Prosnitz and are inactive for 20 minutes." />
-    
-    <View
-        android:layout_width="fill_parent"
-        android:layout_height="10dp" >
-    </View>
-    
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="15sp"
-        android:text="4 hours ago:" />
-    
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="15sp"
-        android:text="Your attempted kill of Kristi Tausk was unsuccessful." />
-    
-        <View
-        android:layout_width="fill_parent"
-        android:layout_height="10dp" >
-    </View>
-    
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="15sp"
-        android:text="6 hours ago:" />
-    
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="15sp"
-        android:text="You have successfully killed Lee Gross and earned 1 point." />
-    
-        <View
-        android:layout_width="fill_parent"
-        android:layout_height="10dp" >
-    </View>
-    
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="15sp"
-        android:text="10 hours ago:" />
-    
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="15sp"
-        android:text="You have successfully killed Lee Gross and earned 1 point." />
     </LinearLayout>
     </ScrollView>
 

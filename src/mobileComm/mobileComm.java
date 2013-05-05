@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.net.Socket;
 import java.net.UnknownHostException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.BlockingQueue;
@@ -148,6 +149,10 @@ public class mobileComm extends Service {
     }
 
     public List<String> getFriends() {
+    	friends = new ArrayList<String>();
+    	friends.add("Friend 1 (this is from mobileComm)");
+        friends.add("Friend 2");
+        friends.add("Friend 3");
         return friends;
     }
 

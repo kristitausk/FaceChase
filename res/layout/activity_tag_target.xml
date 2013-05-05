@@ -34,22 +34,6 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:id="@+id/targetButtons">
-    <RadioButton
-        android:layout_width="fill_parent"
-    	android:layout_height="wrap_content"
-    	android:text="Caelan Garrett"/>
-    <RadioButton
-        android:layout_width="fill_parent"
-    	android:layout_height="wrap_content"
-    	android:text="Lee Gross"/>
-    <RadioButton
-        android:layout_width="fill_parent"
-    	android:layout_height="wrap_content"
-    	android:text="Miriam Prosnitz"/>
-    <RadioButton
-        android:layout_width="fill_parent"
-    	android:layout_height="wrap_content"
-    	android:text="Kristi Tausk"/>
     
 	</RadioGroup>
 	</LinearLayout>

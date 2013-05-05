@@ -1,5 +1,8 @@
 package com.example.facechase_project;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import mobileComm.mobileComm;
 
 import com.example.facechase_project.R;
@@ -13,6 +16,9 @@ import android.content.ServiceConnection;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import android.widget.LinearLayout.LayoutParams;
 
 public class OptionsActivity extends Activity {
 
@@ -21,6 +27,23 @@ public class OptionsActivity extends Activity {
 		//doBindService();
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_options);
+		
+		LinearLayout ll = (LinearLayout) findViewById(R.id.targets_layout_wrapper);
+		//List<String> notifications = mBoundService.getNotifications();
+		List<String> notifications = new ArrayList<String>();
+		notifications.add("Notification 1");
+		notifications.add("Notification 2");
+        for (int i = 0; i<notifications.size(); i++) {
+        	TextView textview = new TextView(this);
+            textview.setText(notifications.get(i));
+            textview.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
+            textview.setTextSize(20);
+            ll.addView(textview);
+            
+            View view = new View(this);
+            view.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, 15));
+            ll.addView(view);
+        }
 	}
 
 	@Override

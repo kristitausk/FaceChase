@@ -28,20 +28,23 @@ public final class R {
         public static final int ic_launcher=0x7f020004;
     }
     public static final class id {
-        public static final int action_settings=0x7f08000d;
+        public static final int action_settings=0x7f080010;
         public static final int add_target_message=0x7f080000;
-        public static final int button1=0x7f08000b;
+        public static final int button1=0x7f08000c;
         public static final int button2=0x7f080004;
         public static final int email_for_login=0x7f080002;
         public static final int imageView1=0x7f080001;
         public static final int imageView2=0x7f080005;
+        public static final int notifications_layout=0x7f080006;
         public static final int password_for_login=0x7f080003;
-        public static final int register_email_message=0x7f080007;
-        public static final int register_name_message=0x7f080006;
-        public static final int register_password2_message=0x7f080009;
-        public static final int register_password_message=0x7f080008;
-        public static final int targetButtons=0x7f08000c;
-        public static final int textView1=0x7f08000a;
+        public static final int register_email_message=0x7f080008;
+        public static final int register_name_message=0x7f080007;
+        public static final int register_password2_message=0x7f08000a;
+        public static final int register_password_message=0x7f080009;
+        public static final int targetButtons=0x7f08000d;
+        public static final int targets_activity_layout=0x7f08000e;
+        public static final int targets_layout_wrapper=0x7f08000f;
+        public static final int textView1=0x7f08000b;
     }
     public static final class layout {
         public static final int activity_add_targets=0x7f030000;

@@ -10,7 +10,9 @@ import com.example.facechase_project.R;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.ComponentName;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.util.Log;
@@ -27,22 +29,21 @@ public class TagTargetActivity extends Activity {
 		//doBindService();
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_tag_target);
-		/**
-		List<String> friends = mBoundService.getFriends();
-		friends.add("Caelan Garrett");
-		friends.add("Lee Gross");
-		friends.add("Miriam Prosnitz");
-		friends.add("Kristi Tausk");
-		for (int i=0; i<friends.size(); i++) {
+		RadioGroup rg = (RadioGroup) findViewById(R.id.targetButtons);
+		
+		//List<String> targets = mBoundService.getFriends();
+		List<String> targets = new ArrayList<String>();
+		targets.add("Friend 1");
+		targets.add("Friend 2");
+		for (int i=0; i<targets.size(); i++) {
 			RadioButton rb = new RadioButton(this);
-			rb.setText(friends.get(i));
-			RadioGroup rg = (RadioGroup) findViewById(R.id.targetButtons);
+			rb.setText(targets.get(i));
 			LinearLayout.LayoutParams lp = new RadioGroup.LayoutParams(
 	                RadioGroup.LayoutParams.MATCH_PARENT,
 	                RadioGroup.LayoutParams.WRAP_CONTENT);
 			rg.addView(rb, 0, lp);
 		}
-		**/
+		
 	}
 
 	@Override
@@ -51,37 +52,40 @@ public class TagTargetActivity extends Activity {
 		getMenuInflater().inflate(R.menu.tag_target, menu);
 		return true;
 	}
-	
-	/**
-	public void targetPicked(View view) {
-		Intent intent = new Intent(this, MainCameraActivity.class);
-		String target = "";
-		switch(view.getId()) {
-		case R.id.radio_target1: {
-			RadioButton radioButtonTarget1 = (RadioButton) findViewById(R.id.radio_target1);
-			target = radioButtonTarget1.getText().toString();
-		}
-		case R.id.radio_target2: {
-			RadioButton radioButtonTarget1 = (RadioButton) findViewById(R.id.radio_target2);
-			target = radioButtonTarget1.getText().toString();
-		}
-		case R.id.radio_target3: {
-			RadioButton radioButtonTarget1 = (RadioButton) findViewById(R.id.radio_target3);
-			target = radioButtonTarget1.getText().toString();
-		}
-		case R.id.radio_target4: {
-			RadioButton radioButtonTarget1 = (RadioButton) findViewById(R.id.radio_target4);
-			target = radioButtonTarget1.getText().toString();
-		}
-		
-        if(mIsBound)
-            mBoundService.handleMessageOut("TagTarget" + Constants.stop + target);
-				
-		}
-		startActivity(intent);
-	}**/
+
 	
 	public void submit(View v) {
+		RadioGroup rg = (RadioGroup) findViewById(R.id.targetButtons);
+		int id = rg.getCheckedRadioButtonId();
+		RadioButton rb = (RadioButton) findViewById(id);
+		String target = rb.getText().toString();
+		
+		AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+ 
+			// set title
+			alertDialogBuilder.setTitle("Your kill has been submitted!");
+ 
+			// set dialog message
+			alertDialogBuilder
+				.setMessage("Your notifications will be updated with this kill request shortly.")
+				.setCancelable(false)
+				.setPositiveButton("Ok",new DialogInterface.OnClickListener() {
+					public void onClick(DialogInterface dialog,int id) {
+						next();
+					}
+				  });
+ 
+				// create alert dialog
+				AlertDialog alertDialog = alertDialogBuilder.create();
+ 
+				// show it
+				alertDialog.show();
+			
+		//if(mIsBound)
+            //mBoundService.handleMessageOut("TagTarget" + Constants.stop + target);
+	}
+	
+	public void next() {
 		Intent intent = new Intent(this, MainCameraActivity.class);
 		startActivity(intent);
 	}

@@ -47,7 +47,7 @@ public class MainCameraActivity extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 		m = this; //need this to send the photo
 		
-	    doBindService();
+	    //doBindService();
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main_camera);
 		this.imageView = (ImageView) this.findViewById(R.id.imageView2);

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/targets_activity_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -10,50 +11,6 @@
     android:paddingBottom="15sp"
     android:background="@drawable/background">
     
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="20sp"
-        android:text="Caelan Garrett" />
-    
-    <View
-        android:layout_width="fill_parent"
-        android:layout_height="15sp" >
-    </View>
-    
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="20sp"
-        android:text="Lee Gross" />
-    
-    <View
-        android:layout_width="fill_parent"
-        android:layout_height="15sp" >
-    </View>
-    
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="20sp"
-        android:text="Miriam Prosnitz" />
-    
-    <View
-        android:layout_width="fill_parent"
-        android:layout_height="15sp" >
-    </View>
-    
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="20sp"
-        android:text="Kristi Tausk" />
-    
-    <View
-        android:layout_width="fill_parent"
-        android:layout_height="15sp" >
-    </View>
-    
     <Button
         android:layout_width="150sp"
         android:layout_height="wrap_content"
@@ -61,5 +18,17 @@
         android:background="@drawable/button"
         android:text="Add a Target" 
         android:onClick="goToAddTarget"/>
+    
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+    <LinearLayout
+        android:orientation="vertical"
+        android:id="@+id/targets_layout_wrapper"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+    </LinearLayout>
+    </ScrollView>
+   
 
 </LinearLayout>

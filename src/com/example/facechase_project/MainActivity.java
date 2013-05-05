@@ -12,7 +12,9 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.ComponentName;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.util.Log;
@@ -29,12 +31,12 @@ public class MainActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-    	//do
+    	
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        srv = new Intent(this, mobileComm.class);
-        startService(srv);
-        doBindService();
+        //srv = new Intent(this, mobileComm.class);
+        //startService(srv);
+        //doBindService();
             Log.w("Here", "Success to Start service.");
         try {
             
@@ -61,7 +63,8 @@ public class MainActivity extends Activity {
         EditText editTextPassword = (EditText) findViewById(R.id.password_for_login);
         String email = editTextEmail.getText().toString();
         String password = editTextPassword.getText().toString();
-
+       
+        /**
         while (mBoundService == null) {}
 
         mBoundService.handleMessageOut("Login" + " | " + email + " | "
@@ -69,12 +72,35 @@ public class MainActivity extends Activity {
         
         while (mBoundService.getUserID().equals("Waiting")) {}
         
-        if (mBoundService.getUserID().equals("NotValid") {
-        	//need popup that says invalid
-        	startActivity(new Intent(this, MainActivity.class));
+        if (mBoundService.getUserID().equals("NotValid")) {
+        	AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+ 
+			// set title
+			alertDialogBuilder.setTitle("Illegal login!");
+ 
+			// set dialog message
+			alertDialogBuilder
+				.setMessage("Please click register to create a new account or check your login information and try again.")
+				.setCancelable(false)
+				.setPositiveButton("Ok",new DialogInterface.OnClickListener() {
+					public void onClick(DialogInterface dialog,int id) {
+						stayHere();
+					}
+				  });
+ 
+				// create alert dialog
+				AlertDialog alertDialog = alertDialogBuilder.create();
+ 
+				// show it
+				alertDialog.show();
         }
         
-        else startActivity(newIntent(this, MainCameraActivity.class));
+        else **/startActivity(new Intent(this, MainCameraActivity.class));
+    }
+    
+    public void stayHere() {
+    	Intent i = new Intent(this, MainActivity.class);
+    	startActivity(i);
     }
 
     // Called when the user clicks the goToRegister button
